@@ -4,7 +4,7 @@ use winit::{
     window::WindowBuilder,
 };
 
-pub fn run() {
+fn run() {
     env_logger::init();
     let event_loop = EventLoop::new();
     let window = WindowBuilder::new().build(&event_loop).unwrap();
@@ -17,11 +17,11 @@ pub fn run() {
             WindowEvent::CloseRequested
             | WindowEvent::KeyboardInput {
                 input:
-                KeyboardInput {
-                    state: ElementState::Pressed,
-                    virtual_keycode: Some(VirtualKeyCode::Escape),
-                    ..
-                },
+                    KeyboardInput {
+                        state: ElementState::Pressed,
+                        virtual_keycode: Some(VirtualKeyCode::Escape),
+                        ..
+                    },
                 ..
             } => *control_flow = ControlFlow::Exit,
             _ => {}
